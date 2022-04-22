@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'is invalid without menu' do
+ 
+    item = Item.new(total: 2,price: 3000)
+
+    expect(item).to be_invalid
+  end
 end

@@ -17,4 +17,10 @@ class Order < ApplicationRecord
         self.status = status
         return true
     end 
+
+     def deadline_payment
+        if self.status != "PAID"
+            self.status = "CANCELED"
+        end
+    end
 end
