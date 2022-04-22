@@ -14,4 +14,10 @@ Rails.application.routes.draw do
   post "/api/menu", to: "menus_api#add_menu"
   patch "/api/menu/:id", to: "menus_api#edit_menu"
   delete "/api/menu/:id", to: "menus_api#delete_menu"
+
+  # order routes
+  get "/api/order", to: "orders_api#get_list_orders"
+  post "/api/order", to: "orders_api#add_order"
+  patch "/api/order/:id/status", to: "orders_api#set_order_status"
+  get "/api/order/:id", to: "orders_api#show_order"
 end
