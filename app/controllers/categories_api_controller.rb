@@ -11,7 +11,7 @@ class CategoriesApiController < ApplicationController
         if @category.save
             render json:@category.as_json, status: :ok
         else
-            render json:{}, status: :bad_request
+            render json:{"message"=>"category can't contain duplicte name"}, status: :bad_request
         end
         
     end
@@ -20,7 +20,7 @@ class CategoriesApiController < ApplicationController
         if Category.exists?(params[:id])
             render json:Category.find(params[:id]).as_json, status: :ok
         else
-            render json:{}, status: :bad_request
+            render json:{"message"=>"category doesnt exist"}, status: :bad_request
         end
     end
 end

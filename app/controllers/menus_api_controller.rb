@@ -19,7 +19,7 @@ class MenusApiController < ApplicationController
         if @menu.save
             render json:@menu.as_json, status: :created
         else
-            render json:{}, status: :bad_request
+            render json:{"message"=>"cek value and format name, category, price"}, status: :bad_request
         end
     end
 
@@ -55,7 +55,7 @@ class MenusApiController < ApplicationController
         if @menu.save
             render json:@menu.as_json, status: :created
         else
-            render json:{}, status: :bad_request
+            render json:{"message"=>"cek value and format name, category, price"}, status: :bad_request
         end
 
     end
@@ -65,7 +65,7 @@ class MenusApiController < ApplicationController
             Menu.destroy(params[:id])
             render json:{"message"=>"succes"}, status: :ok
         else
-            render json:{"message"=>"menu is not found"}, status: :bad_request
+            render json:{"message"=>"menu is not found"}, status: :not_found
         end
     end
 
@@ -74,7 +74,7 @@ class MenusApiController < ApplicationController
 
             render json:Menu.find(params[:id]).as_json(include: :categories), status: :ok
         else
-            render json:{"message"=>"menu is not found"}, status: :bad_request
+            render json:{"message"=>"menu is not found"}, status: :not_found
         end
     end
 end

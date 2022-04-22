@@ -28,3 +28,9 @@ If you need help you might be able to find an answer on our [docs](https://docs.
 
 Gigih Familiy Catering's Api has been documented using postman, url to documentation is [here](https://documenter.getpostman.com/view/20623754/UyrAFcG3)
 
+## Predefined Menu Category
+id(1) makanan jawa
+id(2) makanan sunda
+id(3) makanan sumatera
+id(4) makanan kalimantan
+
