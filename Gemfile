@@ -18,6 +18,9 @@ gem "puma", "~> 5.0"
 # validate email
 gem "email_validator"
 
+# whenever to schedule cron job 
+gem 'whenever', require: false
+
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 

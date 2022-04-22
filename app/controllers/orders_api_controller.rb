@@ -10,7 +10,7 @@ class OrdersApiController < ApplicationController
         if Order.exists?(params[:id])
             render json:Order.find(params[:id]).as_json(include: :items), status: :ok
         else
-            render json:{}, status: :bad_request
+            render json:{"message"=>"order not found"}, status: :not_found
         end
     end
 
@@ -20,17 +20,18 @@ class OrdersApiController < ApplicationController
             if @order.set_status(params[:status])
                 render json:@order.as_json(include: :items), status: :ok
             else
-                render json:{}, status: :bad_request
+                render json:{"message"=>"only NEW/PAID/CANCELED are allowed"}, status: :bad_request
             end
 
         else
-            render json:{}, status: :bad_request
+            render json:{"message"=>"only NEW/PAID/CANCELED are allowed"}, status: :bad_request
         end
         
     end
 
 
     def add_order
+        begin
         Order.transaction do
             Order.transaction do 
                 @order = Order.new
@@ -48,11 +49,17 @@ class OrdersApiController < ApplicationController
 
                 @order.email_customer = params[:email_customer]
                 @order.save! 
-                render json:@order.as_json(include: :items), status: :created
-                return
+                
+               
+                
             end
         end
-        render json:{}, status: :bad_request
+        rescue
+            render json:{"message"=>"check id menu and email format"}, status: :bad_request
+            return
+        end
+        render json:@order.as_json(include: :items), status: :created
+        
 
 
     end

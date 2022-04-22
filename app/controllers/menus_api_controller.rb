@@ -24,7 +24,15 @@ class MenusApiController < ApplicationController
     end
 
     def edit_menu
-        @menu = Menu.find(params[:id])
+        if Menu.exists?(params[:id])
+            @menu = Menu.find(params[:id])
+        else
+            render json:{"message"=>"menu is not found"}, status: :bad_request
+          return
+        end
+        
+        
+          
         if params.has_key?(:name)
             @menu.name = params[:name]
         end
@@ -55,9 +63,9 @@ class MenusApiController < ApplicationController
     def delete_menu
         if Menu.exists?(params[:id])
             Menu.destroy(params[:id])
-            render json:{}, status: :ok
+            render json:{"message"=>"succes"}, status: :ok
         else
-            render json:{}, status: :bad_request
+            render json:{"message"=>"menu is not found"}, status: :bad_request
         end
     end
 
@@ -66,7 +74,7 @@ class MenusApiController < ApplicationController
 
             render json:Menu.find(params[:id]).as_json(include: :categories), status: :ok
         else
-            render json:{}, status: :bad_request
+            render json:{"message"=>"menu is not found"}, status: :bad_request
         end
     end
 end

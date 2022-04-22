@@ -23,3 +23,8 @@ SQLite would work in development but we don't recommend running it in production
 ## Help
 
 If you need help you might be able to find an answer on our [docs](https://docs.replit.com) page. Alternatively you can [ask in the community](https://replit.com/talk/ask). Feel free to report bugs [here](https://replit.com/bugs) and give us feedback [here](https://Replit/feedback).
+
+## Gigih Familiy Catering API
+
+Gigih Familiy Catering's Api has been documented using postman, url to documentation is [here](https://documenter.getpostman.com/view/20623754/UyrAFcG3)
+

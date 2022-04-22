@@ -20,4 +20,11 @@ Rails.application.routes.draw do
   post "/api/order", to: "orders_api#add_order"
   patch "/api/order/:id/status", to: "orders_api#set_order_status"
   get "/api/order/:id", to: "orders_api#show_order"
+
+  # reports routes
+  get "/api/report", to: "reports_api#get_today_report"
+  get "/api/report/customer", to: "reports_api#get_report_by_email"
+  get "/api/report/date", to: "reports_api#get_report_by_date"
+  get "/api/report/date/range", to: "reports_api#get_report_by_date_range"
+  get "/api/report/price", to: "reports_api#get_report_by_price"
 end
