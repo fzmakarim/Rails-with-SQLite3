@@ -34,3 +34,18 @@ id(2) makanan sunda
 id(3) makanan sumatera
 id(4) makanan kalimantan
 
+## Deadline payment event every 5 pm is scheduled using [EasyCron](https://www.easycron.com/)
+
+![Cron Setting](https://i.ibb.co/ZfRWj1K/cron1.png)
+
+![Cron Setting](https://i.ibb.co/3cC3NzP/cron2.png)
+
+Cronjob will make an http request to "https://Gigih-Family-Catering-mahmudfz.gojek22.repl.co/api/order/deadline_payment" with method POST
+
+```
+curl --location --request POST 'https://Gigih-Family-Catering-mahmudfz.gojek22.repl.co/api/order/deadline_payment'
+```
+
+
+
+

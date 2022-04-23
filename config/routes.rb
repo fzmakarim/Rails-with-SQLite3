@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post "/api/order", to: "orders_api#add_order"
   patch "/api/order/:id/status", to: "orders_api#set_order_status"
   get "/api/order/:id", to: "orders_api#show_order"
+  post "/api/order/deadline_payment", to: "orders_api#deadline_payment_reached"
 
   # reports routes
   get "/api/report", to: "reports_api#get_today_report"

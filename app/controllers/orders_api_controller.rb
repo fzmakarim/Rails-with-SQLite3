@@ -29,6 +29,14 @@ class OrdersApiController < ApplicationController
         
     end
 
+    def deadline_payment_reached
+      @orders = Order.all
+      @orders.each do |order|
+        order.deadline_payment()
+      end
+      render json:{"message"=>"sucess"}, status: :ok
+    end
+
 
     def add_order
         begin

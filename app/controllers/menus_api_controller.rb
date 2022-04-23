@@ -19,7 +19,7 @@ class MenusApiController < ApplicationController
         if @menu.save
             render json:@menu.as_json, status: :created
         else
-            render json:{"message"=>"cek value and format name, category, price"}, status: :bad_request
+            render json:{"message"=>"cek value and format name, category, price,menu name must be unique"}, status: :bad_request
         end
     end
 
@@ -55,7 +55,7 @@ class MenusApiController < ApplicationController
         if @menu.save
             render json:@menu.as_json, status: :created
         else
-            render json:{"message"=>"cek value and format name, category, price"}, status: :bad_request
+            render json:{"message"=>"cek value and format name, category, price, menu name must be unique"}, status: :bad_request
         end
 
     end
